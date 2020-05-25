@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
+        string[] fotosPresentacion;
+        int cont = 0;
         public Form1()
         {
             InitializeComponent();
@@ -20,22 +23,39 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-            folderBrowserDialog.Description = "Selecciona la carpeta con imágenes";
-            folderBrowserDialog.ShowDialog();
-            string rutaFotos = folderBrowserDialog.SelectedPath;
-        }
 
+            try
+            {
+                FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+                folderBrowserDialog.Description = "Selecciona la carpeta con imágenes";
+                folderBrowserDialog.ShowDialog();
+                string rutaFotos = folderBrowserDialog.SelectedPath;
+                fotosPresentacion = Directory.GetFiles(rutaFotos, "*png");
+            }
+            catch (System.ArgumentException)
+            {
+
+            }
+        }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (mediaPlayer1.TimerFuncionando)
+            if (fotosPresentacion != null)
             {
-               //codigo para pasar de foto
-            }
-            else
-            {
-               //codigo para pausar
+                if (mediaPlayer1.TimerFuncionando)
+                {
+                    pictureBox1.Image = new Bitmap(fotosPresentacion[cont]);
+                    cont++;
+
+                    if (cont >= fotosPresentacion.Length)
+                    {
+                        cont = 0;
+                    }
+                }
+                else
+                {
+                    pictureBox1.Image = default;
+                }
             }
         }
-    }   
+    }
 }

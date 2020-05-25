@@ -46,7 +46,7 @@
             // 
             // btnDirectorio
             // 
-            this.btnDirectorio.Location = new System.Drawing.Point(91, 309);
+            this.btnDirectorio.Location = new System.Drawing.Point(35, 335);
             this.btnDirectorio.Name = "btnDirectorio";
             this.btnDirectorio.Size = new System.Drawing.Size(132, 38);
             this.btnDirectorio.TabIndex = 1;
@@ -66,7 +66,7 @@
             // 
             this.mediaPlayer1.ImagePause = ((System.Drawing.Image)(resources.GetObject("mediaPlayer1.ImagePause")));
             this.mediaPlayer1.ImagePlay = ((System.Drawing.Image)(resources.GetObject("mediaPlayer1.ImagePlay")));
-            this.mediaPlayer1.Location = new System.Drawing.Point(91, 35);
+            this.mediaPlayer1.Location = new System.Drawing.Point(35, 79);
             this.mediaPlayer1.Minutos = 0;
             this.mediaPlayer1.Name = "mediaPlayer1";
             this.mediaPlayer1.Segundos = 0;
