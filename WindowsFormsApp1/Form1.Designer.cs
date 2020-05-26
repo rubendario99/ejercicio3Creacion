@@ -72,7 +72,6 @@
             this.mediaPlayer1.Segundos = 0;
             this.mediaPlayer1.Size = new System.Drawing.Size(152, 203);
             this.mediaPlayer1.TabIndex = 3;
-            this.mediaPlayer1.TimerFuncionando = false;
             // 
             // timer1
             // 

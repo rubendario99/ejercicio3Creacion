@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,14 +48,9 @@
             this.lbl.AutoSize = true;
             this.lbl.Location = new System.Drawing.Point(26, 168);
             this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(55, 17);
+            this.lbl.Size = new System.Drawing.Size(44, 17);
             this.lbl.TabIndex = 1;
-            this.lbl.Text = "Tiempo";
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.lbl.Text = "00:00";
             // 
             // MediaPlayer
             // 
@@ -77,6 +70,5 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbl;
-        private System.Windows.Forms.Timer timer1;
     }
 }

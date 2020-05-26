@@ -18,12 +18,9 @@ namespace Ejercicio3Creacion
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             this.ImagePlay = Properties.Resources.play;
             this.ImagePause = Properties.Resources.pause;
-            TimerFuncionando = false;
         }
 
-        [Category("Funcionamiento")]
-        [Description("True si el timer está enabled")]
-        public bool TimerFuncionando { set; get; }
+        //propiedades
 
         private Image imagePlay;
         [Category("Design")]
@@ -60,11 +57,20 @@ namespace Ejercicio3Creacion
 
         [Category("Timer")]
         [Description("Minutos de reproducción")]
-        public int Minutos { set; get; }
-
-        [Category("Timer")]
-        [Description("Segundos de reproducción")]
-        public int Segundos { set; get; }
+        public int Minutos
+        {
+            set
+            {
+                if (Minutos > 99)
+                {
+                    Minutos = 0;
+                }
+            }
+            get
+            {
+                return Minutos;
+            }
+        }
 
         //eventos
 
@@ -76,49 +82,38 @@ namespace Ejercicio3Creacion
         [Description("Se lanza cuando pasa 1 minuto de reproducción")]
         public event System.EventHandler DesbordaTiempo;
 
+        //propiedades
+
+        [Category("Timer")]
+        [Description("Segundos de reproducción")]
+        public int Segundos
+        {
+            set
+            {
+                if (Segundos > 59)
+                {
+                    DesbordaTiempo?.Invoke(this, EventArgs.Empty);
+                    Segundos = Segundos % 60;
+                }
+            }
+            get
+            {
+                return Segundos;
+            }
+        }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            ClickEnPlayPause?.Invoke(this, e);
 
             if (pictureBox1.Image == ImagePlay)
             {
                 pictureBox1.Image = ImagePause;
-                timer1.Enabled = true;
-                TimerFuncionando = true;
             }
+
             else
             {
-                timer1.Enabled = false;
                 pictureBox1.Image = ImagePlay;
-                TimerFuncionando = false;
             }
-            ClickEnPlayPause?.Invoke(this, e);
-
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-
-            Segundos++;
-
-            if (Segundos > 59)
-            {
-                Minutos++;
-                Segundos = 0;
-                DesbordaTiempo?.Invoke(this, e);
-            }
-            if (Minutos > 99)
-            {
-                Minutos = 0;
-            }
-            if (Minutos != 0)
-            {
-                lbl.Text = Minutos + " m " + Segundos + " s";
-            }
-            else
-            {
-                lbl.Text = Segundos + " s";
-            }
-
         }
     }
 }

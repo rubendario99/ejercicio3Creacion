@@ -41,21 +41,21 @@ namespace WindowsFormsApp1
         {
             if (fotosPresentacion != null)
             {
-                if (mediaPlayer1.TimerFuncionando)
-                {
-                    pictureBox1.Image = new Bitmap(fotosPresentacion[cont]);
-                    cont++;
+                //if (mediaPlayer1.TimerFuncionando)
+                //{
+                //    pictureBox1.Image = new Bitmap(fotosPresentacion[cont]);
+                //    cont++;
 
-                    if (cont >= fotosPresentacion.Length)
-                    {
-                        cont = 0;
-                    }
-                }
-                else
-                {
-                    pictureBox1.Image = default;
-                }
+                //    if (cont >= fotosPresentacion.Length)
+                //    {
+                //        cont = 0;
+                //    }
+            }
+            else
+            {
+                pictureBox1.Image = default;
             }
         }
     }
 }
+
