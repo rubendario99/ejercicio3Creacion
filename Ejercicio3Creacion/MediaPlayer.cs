@@ -57,18 +57,37 @@ namespace Ejercicio3Creacion
 
         [Category("Timer")]
         [Description("Minutos de reproducción")]
+        private int minutos;
         public int Minutos
         {
             set
             {
-                if (Minutos > 99)
+                if (minutos > 99)
                 {
-                    Minutos = 0;
+                    minutos = 0;
+                }
+                else
+                {
+                    minutos = value;
                 }
             }
             get
             {
-                return Minutos;
+                return minutos;
+            }
+        }
+
+        [Category("Texto")]
+        [Description("Texto del label")]
+        public string LblTxt
+        {
+            set
+            {
+                lbl.Text = value;
+            }
+            get
+            {
+                return lbl.Text;
             }
         }
 
@@ -86,19 +105,22 @@ namespace Ejercicio3Creacion
 
         [Category("Timer")]
         [Description("Segundos de reproducción")]
+        private int segundos;
         public int Segundos
         {
             set
             {
-                if (Segundos > 59)
+                segundos = value;
+                if (segundos > 59)
                 {
+                    segundos = segundos % 60;
                     DesbordaTiempo?.Invoke(this, EventArgs.Empty);
-                    Segundos = Segundos % 60;
                 }
+               
             }
             get
             {
-                return Segundos;
+                return segundos;
             }
         }
         private void pictureBox1_Click(object sender, EventArgs e)

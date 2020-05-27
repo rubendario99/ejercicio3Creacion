@@ -48,9 +48,9 @@
             this.lbl.AutoSize = true;
             this.lbl.Location = new System.Drawing.Point(26, 168);
             this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(44, 17);
+            this.lbl.Size = new System.Drawing.Size(28, 17);
             this.lbl.TabIndex = 1;
-            this.lbl.Text = "00:00";
+            this.lbl.Text = "0:0";
             // 
             // MediaPlayer
             // 

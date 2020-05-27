@@ -1,7 +1,7 @@
 C:\Users\ruchi\source\repos\Ejercicio3Creacion\Ejercicio3Creacion\bin\Debug\Ejercicio3Creacion.dll
 C:\Users\ruchi\source\repos\Ejercicio3Creacion\Ejercicio3Creacion\bin\Debug\Ejercicio3Creacion.pdb
 C:\Users\ruchi\source\repos\Ejercicio3Creacion\Ejercicio3Creacion\obj\Debug\Ejercicio3Creacion.MediaPlayer.resources
+C:\Users\ruchi\source\repos\Ejercicio3Creacion\Ejercicio3Creacion\obj\Debug\Ejercicio3Creacion.Properties.Resources.resources
 C:\Users\ruchi\source\repos\Ejercicio3Creacion\Ejercicio3Creacion\obj\Debug\Ejercicio3Creacion.csproj.GenerateResource.cache
 C:\Users\ruchi\source\repos\Ejercicio3Creacion\Ejercicio3Creacion\obj\Debug\Ejercicio3Creacion.dll
 C:\Users\ruchi\source\repos\Ejercicio3Creacion\Ejercicio3Creacion\obj\Debug\Ejercicio3Creacion.pdb
-C:\Users\ruchi\source\repos\Ejercicio3Creacion\Ejercicio3Creacion\obj\Debug\Ejercicio3Creacion.Properties.Resources.resources
