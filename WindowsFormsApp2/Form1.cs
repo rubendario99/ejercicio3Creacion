@@ -15,7 +15,7 @@ namespace WindowsFormsApp2
     {
 
         private bool reproduciendo = false;
-        private string[] fotosPresentacion;
+        private string[] fotosPresentacion=null;
         private int cont = 0;
 
         public Form1()
@@ -32,30 +32,35 @@ namespace WindowsFormsApp2
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-
             if (fotosPresentacion != null)
             {
-
                 if (reproduciendo)
                 {
-
                     if (cont >= fotosPresentacion.Length)
                     {
                         cont = 0;
                     }
+                    try
+                    {
+                        pictureBox1.Image = new Bitmap(fotosPresentacion[cont]);
+                        mediaPlayer1.LblTxt = mediaPlayer1.Minutos + " : " + mediaPlayer1.Segundos;
+                        mediaPlayer1.Segundos++;
+                        cont++;
+                    }
+                    catch (System.ArgumentException)
+                    {
+                        cont++;
+                    }
+                    catch (System.IndexOutOfRangeException)
+                    {
 
-                    pictureBox1.Image = new Bitmap(fotosPresentacion[cont]);
-                    mediaPlayer1.LblTxt = mediaPlayer1.Minutos + " : " + mediaPlayer1.Segundos;
-                    mediaPlayer1.Segundos++;
-                    cont++;
+                    }
                 }
                 else
                 {
                     pictureBox1.Image = default;
                 }
-
             }
-
         }
         private void mediaPlayer1_DesbordaTiempo(object sender, EventArgs e)
         {
@@ -70,7 +75,15 @@ namespace WindowsFormsApp2
                 folderBrowserDialog.Description = "Selecciona la carpeta con imágenes";
                 folderBrowserDialog.ShowDialog();
                 string rutaFotos = folderBrowserDialog.SelectedPath;
+                try
+                {
                 fotosPresentacion = Directory.GetFiles(rutaFotos, "*png");
+
+                }
+                catch (System.UnauthorizedAccessException)
+                {
+                    MessageBox.Show("No tienes permiso para acceder a este directorio");
+                }
             }
             catch (System.ArgumentException)
             {
